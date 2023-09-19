@@ -19,7 +19,7 @@ namespace webapi.event_.manha.Domains
         [Required(ErrorMessage = "Nome do Evento Obrigatória")]
         public string? NomeEvento { get; set; }
 
-        [Column(TypeName = "TEX")]
+        [Column(TypeName = "TEXT")]
         [Required(ErrorMessage = "Descrição do Evento Obrigatória")]
         public string? Descricao { get; set; }
 
