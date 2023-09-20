@@ -8,8 +8,11 @@ using webapi.event_.manha.Repositores;
 namespace webapi.event_.manha.Controllers
 {
     [Route("api/[controller]")]
+
     [ApiController]
+
     [Produces("application/json")]
+
     [Authorize]
     public class UsuarioController : ControllerBase
     {

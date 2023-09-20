@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -13,6 +14,7 @@ namespace webapi.event_.manha.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
+    [Authorize]
     public class LoginController : ControllerBase
     {
         private IUsuarioRepository _usuarioRepository { get; set; }
@@ -44,20 +46,16 @@ namespace webapi.event_.manha.Controllers
                     new Claim(ClaimTypes.Role, usuarioBuscado.TiposUsuario!.Titulo!),
                 };
 
-                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Evento-chave-autenticacao-webapi-dev"));
+                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Event-webapi-chave-autenticacao"));
 
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
                 var token = new JwtSecurityToken
                 (
                     issuer: "webapi.event+.manha",
-
                     audience: "webapi.event+.manha",
-
                     claims: claims,
-
                     expires: DateTime.Now.AddMinutes(10),
-
                     signingCredentials: creds
                 );
 
