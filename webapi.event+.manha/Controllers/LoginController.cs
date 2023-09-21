@@ -14,7 +14,6 @@ namespace webapi.event_.manha.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    [Authorize]
     public class LoginController : ControllerBase
     {
         private IUsuarioRepository _usuarioRepository { get; set; }
@@ -46,7 +45,7 @@ namespace webapi.event_.manha.Controllers
                     new Claim(ClaimTypes.Role, usuarioBuscado.TiposUsuario!.Titulo!),
                 };
 
-                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Event-webapi-chave-autenticacao"));
+                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Event-webapi-chave-autenticacao-event-plus-manha"));
 
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 

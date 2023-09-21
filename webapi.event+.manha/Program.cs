@@ -29,7 +29,7 @@ builder.Services.AddAuthentication(options =>
         ValidateLifetime = true,
 
         //forma de criptografia e valida a chave de autenticação
-        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("projeto-event-webapi-chave-autenticacao")),
+        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Event-webapi-chave-autenticacao-event-plus-manha")),
 
         //valida o tempo de expiração do token
         ClockSkew = TimeSpan.FromMinutes(5),
