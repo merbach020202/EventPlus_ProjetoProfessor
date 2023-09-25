@@ -19,7 +19,7 @@ namespace webapi.event_.manha.Domains
         public bool Exibe { get; set; }
 
         //ref.tabeala Usuario = FK
-        [Required(ErrorMessage = "Usuaário obrigatório!")]
+        [Required(ErrorMessage = "Usuário obrigatório!")]
         public Guid IdUsuario { get; set; }
 
         [ForeignKey(nameof(IdUsuario))]
